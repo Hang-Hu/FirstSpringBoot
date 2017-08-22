@@ -5,7 +5,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.huhang.dao.Note;
 import com.huhang.dao.NoteRepository;
+
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+
+import org.h2.tools.Console;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +41,16 @@ public class TestNoteRepository {
 
   @Test
   public void testGetAllNotes() {
-
+    try {
+      Console.main();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    try {
+      Thread.sleep(Long.MAX_VALUE);
+    } catch (InterruptedException e) {
+      System.exit(0);
+    }
     Iterable<Note> notes = noteRepository.findAll();
     System.out.println("Notes: ");
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

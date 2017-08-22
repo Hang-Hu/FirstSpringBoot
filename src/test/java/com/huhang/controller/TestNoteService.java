@@ -42,7 +42,7 @@ public class TestNoteService {
 
   @Before
   public void setUp() throws Exception {
-    noteService
+
 
   }
 
